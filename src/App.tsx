@@ -1,10 +1,11 @@
-import { Button } from "./components/ui/button";
+import { Outlet } from "react-router";
+import Navbar from "./components/layout/Navbar";
 
 export default function App() {
   return (
-    <div>
-      <h1>Basic Todo App</h1>
-      <Button>Test</Button>
-    </div>
+    <>
+      <Navbar />
+      <Outlet />
+    </>
   );
 }
