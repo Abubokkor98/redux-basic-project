@@ -10,12 +10,49 @@ interface InitialState {
 const initialState: InitialState = {
   task: [
     {
-      id: "wjdowjd",
-      title: "initialize frontend",
-      description: "create home page and routing",
-      dueDate: "2025-11",
+      id: "1",
+      title: "Finalize Q3 Report",
+      description:
+        "Compile all departmental data and finalize the quarterly financial report for stakeholder review.",
+      dueDate: "2025-07-15",
       isCompleted: false,
       priority: "High",
+    },
+    {
+      id: "2",
+      title: "Design New UI Mockups",
+      description:
+        "Create mockups for the new user dashboard, focusing on usability and modern design principles.",
+      dueDate: "2025-07-22",
+      isCompleted: false,
+      priority: "Medium",
+    },
+    {
+      id: "3",
+      title: "Fix Authentication Bug",
+      description:
+        "Investigate and resolve the intermittent login issue reported by users on the mobile app.",
+      dueDate: "2025-07-06",
+      isCompleted: true,
+      priority: "High",
+    },
+    {
+      id: "4",
+      title: "Organize Team Outing",
+      description:
+        "Plan and coordinate a team-building event for the end of the month.",
+      dueDate: "2025-07-30",
+      isCompleted: false,
+      priority: "Low",
+    },
+    {
+      id: "5",
+      title: "Update API Documentation",
+      description:
+        "Document the new endpoints and update existing sections to reflect the latest API changes.",
+      dueDate: "2025-08-01",
+      isCompleted: true,
+      priority: "Medium",
     },
   ],
   filter: "all",
