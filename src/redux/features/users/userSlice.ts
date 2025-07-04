@@ -10,11 +10,11 @@ const initialState: InitialState = {
   user: [
     {
       id: "1",
-      name: "Abu Bokkor",
+      name: "Axd Ab",
     },
     {
       id: "2",
-      name: "Likhon",
+      name: "Abu Bokkor Siddik",
     },
   ],
 };
