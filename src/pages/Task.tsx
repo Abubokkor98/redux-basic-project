@@ -1,14 +1,8 @@
 import { AddTaskModal } from "@/components/module/tasks/AddTaskModal";
-import TaskCard from "@/components/module/tasks/TaskCard";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  filterTask,
-  selectTasks,
-} from "@/redux/features/task/taskSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 
 export default function Task() {
-  const tasks = useAppSelector(selectTasks);
   const dispatch = useAppDispatch();
   // const filter = useAppSelector(selectFilter);
   // console.log(tasks);
@@ -19,39 +13,15 @@ export default function Task() {
         <h1 className="mr-auto">Tasks</h1>
         <Tabs defaultValue="all">
           <TabsList>
-            <TabsTrigger
-              onClick={() => dispatch(filterTask("all"))}
-              value="all"
-            >
-              All
-            </TabsTrigger>
-            <TabsTrigger
-              onClick={() => dispatch(filterTask("high"))}
-              value="high"
-            >
-              High
-            </TabsTrigger>
-            <TabsTrigger
-              onClick={() => dispatch(filterTask("medium"))}
-              value="medium"
-            >
-              Medium
-            </TabsTrigger>
-            <TabsTrigger
-              onClick={() => dispatch(filterTask("low"))}
-              value="low"
-            >
-              Low
-            </TabsTrigger>
+            <TabsTrigger value="all">All</TabsTrigger>
+            <TabsTrigger value="high">High</TabsTrigger>
+            <TabsTrigger value="medium">Medium</TabsTrigger>
+            <TabsTrigger value="low">Low</TabsTrigger>
           </TabsList>
         </Tabs>
         <AddTaskModal />
       </div>
-      <div className="space-y-5 mt-5">
-        {tasks.map((task) => (
-          <TaskCard task={task} key={task.id} />
-        ))}
-      </div>
+      <div className="space-y-5 mt-5"></div>
     </div>
   );
 }

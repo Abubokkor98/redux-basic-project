@@ -17,20 +17,15 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useAppDispatch } from "@/redux/hook";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
-import { addUser } from "@/redux/features/users/userSlice";
-import type { IUser } from "@/types/user-types";
 import { useState } from "react";
 
 export function AddUserModal() {
   const [openModal, setOpenModal] = useState(false);
 
   const form = useForm();
-  const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    dispatch(addUser(data as IUser));
     form.reset();
     setOpenModal(false);
   };
