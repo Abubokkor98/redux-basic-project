@@ -5,7 +5,22 @@ import { useGetTaskQuery } from "@/redux/api/baseApi";
 import type { ITask } from "@/types/task-types";
 
 export default function Task() {
-  const { data, isLoading, isError } = useGetTaskQuery(undefined);
+  const { data, isLoading, isError } = useGetTaskQuery(undefined, {
+    /**
+     * note: The `undefined` argument is used here because the query does not require any parameters.
+     * * The `useGetTaskQuery` hook is designed to fetch tasks from the API.
+     * * The second argument is an options object that configures the query behavior:
+     * * - `pollingInterval`: Sets the interval for polling the API to fetch new data.
+     * * - `refetchOnFocus`: Refetches the data when the window is focused.
+     * * - `refetchOnMountOrArgChange`: Refetches the data when the component mounts or when the arguments change.
+     * * - `refetchOnReconnect`: Refetches the data when the browser reconnects to the network.
+     * * This setup ensures that the task list is kept up-to-date with the latest data from the server.
+     */
+    pollingInterval: 3000,
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true,
+    refetchOnReconnect: true,
+  });
 
   console.log({ data, isLoading, isError });
 
