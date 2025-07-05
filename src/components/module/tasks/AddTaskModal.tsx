@@ -34,6 +34,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { useCreateTaskMutation } from "@/redux/api/baseApi";
 import { SelectLabel } from "@radix-ui/react-select";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
@@ -44,8 +45,14 @@ export function AddTaskModal() {
   const [openModal, setOpenModal] = useState(false);
   const form = useForm();
 
+  const [createTask, { data, isLoading, isError }] = useCreateTaskMutation();
+
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    // console.log(data);
+    const taskData = {
+      ...data,
+      isCompleted: false,
+    };
+    createTask(taskData);
     setOpenModal(false);
     form.reset();
   };
@@ -116,7 +123,7 @@ export function AddTaskModal() {
                 </FormItem>
               )}
             />
-            <FormField
+            {/* <FormField
               control={form.control}
               name="assignedTo"
               render={({ field }) => (
@@ -139,7 +146,7 @@ export function AddTaskModal() {
                   </Select>
                 </FormItem>
               )}
-            />
+            /> */}
 
             <FormField
               control={form.control}
